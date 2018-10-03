@@ -15,7 +15,7 @@ public Samling() {
 public void leggTil(vare v) {
 	if(VareKontroll.lovligVare(v.getVarenavn())) {
 	Samling.add(v);
-	}
+	}//
 }
 
 
