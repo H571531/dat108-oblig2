@@ -71,7 +71,7 @@ public class HandlelisteServlet extends HttpServlet {
 		
 		HttpSession sesjon = request.getSession(false);
 		
-		//Hvis sesjon er utgått eller kommet til handleliste uten å logge inn, send tilbake til LoginServlet
+		//Hvis sesjon er utgått eller kommet til handleliste uten å logge inn, send tilbake til LoginServlet 
 		if(!LoginUtils.brukerErInnlogget(request)) {
 			response.sendRedirect("LoginServlet?trengerLogin");
 		} else {

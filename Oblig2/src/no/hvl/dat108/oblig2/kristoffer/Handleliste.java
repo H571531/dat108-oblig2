@@ -22,7 +22,7 @@ public class Handleliste {
 	
 	public void fjernVare(String vareNavn) {
 		synchronized(varer) {
-				//Har sjekket for om varen som forsøkes fjernet er null
+				//Har sjekket for om varen som forsøkes fjernet er null 
 				//Hvis en bruker forsøker å fjerne en vare som allerede er fjernet av en annen bruker, forblir listen uendret ifølge API for ArrayList
 				varer.remove(new Vare(vareNavn));
 			

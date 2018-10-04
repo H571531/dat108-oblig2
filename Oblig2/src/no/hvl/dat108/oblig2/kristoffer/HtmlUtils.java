@@ -3,7 +3,7 @@ package no.hvl.dat108.oblig2.kristoffer;
 public class HtmlUtils {
 	
 	/**
-	 * Gir start-tags for en HTML-side
+	 * Gir start-tags for en HTML-side 
 	 * @param title Title-attribute i head
 	 * @param overskrift Starter siden med overskrift i h1
 	 * @return String med html start-tags

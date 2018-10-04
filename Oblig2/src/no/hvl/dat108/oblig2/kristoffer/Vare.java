@@ -3,7 +3,7 @@ package no.hvl.dat108.oblig2.kristoffer;
 public class Vare {
 	
 	String navn;
-	//statisk id for å gjøre sletting lettere?
+	//statisk id for å gjøre sletting lettere? 
 	
 	public Vare(String navn) {
 		this.navn = navn;

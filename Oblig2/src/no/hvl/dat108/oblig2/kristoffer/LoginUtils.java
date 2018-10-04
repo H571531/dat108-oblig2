@@ -11,7 +11,7 @@ public class LoginUtils {
 		String feilPassord = request.getParameter("feilPassord");
 		
 		if(feilPassord != null){
-			//Hvis bruker ble redirected tilbake på grunn av feil passord
+			//Hvis bruker ble redirected tilbake på grunn av feil passord 
 			beOmPassord = "<p style=\"color:red;\">Feil passord. Prøv igjen</p>";
 		}
 		
