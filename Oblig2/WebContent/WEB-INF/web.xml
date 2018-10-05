@@ -14,11 +14,11 @@
     <servlet-class>no.hvl.dat108.servlets.Logginn</servlet-class>
     <init-param>
       <param-name>passord</param-name>
-      <param-value>Fint0gLangtPas50rd</param-value>
+      <param-value>passord123</param-value>
     </init-param>
   </servlet>
   <context-param>
    	<param-name>timeout</param-name>
-  	<param-value>15</param-value>
+  	<param-value>8</param-value>
   </context-param>
 </web-app>
