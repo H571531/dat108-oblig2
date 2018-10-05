@@ -16,7 +16,7 @@ import no.hvl.dat108.kontroll.HtmlUtils;
 /**
  * Servlet implementation class logginn
  */
-@WebServlet(name="Inlogging Servlet", urlPatterns="/logginn")
+@WebServlet(name="Inlogging Servlet", urlPatterns="/Logginn")
 public class Logginn extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private String passord;
