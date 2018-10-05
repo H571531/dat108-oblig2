@@ -6,13 +6,13 @@ import java.util.List;
 import no.hvl.dat108.kontroll.VareKontroll;
 
 public class Samling {
-private List<vare> Samling;
+private List<Vare> Samling;
 
 public Samling() {
-	Samling = new ArrayList<vare>();
+	Samling = new ArrayList<Vare>();
 }
 
-public void leggTil(vare v) {
+public void leggTil(Vare v) {
 	if(VareKontroll.lovligVare(v.getVarenavn())) {
 	Samling.add(v);
 	}

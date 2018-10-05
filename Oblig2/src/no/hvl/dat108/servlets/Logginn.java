@@ -16,7 +16,7 @@ import no.hvl.dat108.kontroll.ErrorHandler;
  * Servlet implementation class logginn
  */
 @WebServlet(name="Inlogging Servlet", urlPatterns="/logginn")
-public class logginn extends HttpServlet {
+public class Logginn extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private String Passord;
  
@@ -86,10 +86,7 @@ public class logginn extends HttpServlet {
     		}
     	sesjon = request.getSession(true);
     	sesjon.setMaxInactiveInterval(30);
-    	
     	sesjon.setAttribute("inlogget", "godkjent");
-        // Inn noe kode her i forbindelse med oppretting av sesjonsdata?
-    	//sesjon.setAttribute("cart",new Cart());
     	
         response.sendRedirect("handleliste");
     	}

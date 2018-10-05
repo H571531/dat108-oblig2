@@ -1,10 +1,10 @@
 package no.hvl.dat108.objekter;
 
-public class vare {
+public class Vare {
 	
 	private String varenavn;
 	
-	public vare(String navn) {
+	public Vare(String navn) {
 		varenavn=navn;
 	}
 

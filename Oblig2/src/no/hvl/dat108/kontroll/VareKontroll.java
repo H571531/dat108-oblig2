@@ -1,6 +1,6 @@
 package no.hvl.dat108.kontroll;
 
-import no.hvl.dat108.objekter.vare;
+import no.hvl.dat108.objekter.Vare;
 
 public class VareKontroll {
 

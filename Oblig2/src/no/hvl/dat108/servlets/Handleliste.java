@@ -17,7 +17,7 @@ import no.hvl.dat108.objekter.Samling;
  * Servlet implementation class handleliste
  */
 @WebServlet("/handleliste")
-public class handleliste extends HttpServlet {
+public class Handleliste extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Samling handleliste;
 	
