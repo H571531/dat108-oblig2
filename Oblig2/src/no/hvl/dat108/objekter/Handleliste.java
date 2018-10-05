@@ -1,13 +1,15 @@
-package no.hvl.dat108.oblig2.kristoffer;
+package no.hvl.dat108.objekter;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+
+
 public class Handleliste {
 	
-	List<Vare> varer;
+	static List<Vare> varer;
 	
 	public Handleliste() {
 		varer = Collections.synchronizedList(new ArrayList<Vare>());
@@ -31,7 +33,7 @@ public class Handleliste {
 		
 	}
 
-	public List<Vare> getVarer() {
+	public static List<Vare> getVarer() {
 		return varer;
 	}
 	

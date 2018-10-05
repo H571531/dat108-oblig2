@@ -1,4 +1,4 @@
-package no.hvl.dat108.oblig2.kristoffer;
+package no.hvl.dat108.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,6 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang.StringEscapeUtils;
+
+import no.hvl.dat108.kontroll.HtmlUtils;
+import no.hvl.dat108.objekter.Handleliste;
+import no.hvl.dat108.objekter.Vare;
+import no.hvl.dat108.kontroll.SessionKontroll;
+
 
 /**
  * Servlet implementation class HandlelisteServlet
@@ -33,8 +39,8 @@ public class HandlelisteServlet extends HttpServlet {
 		
 		response.setContentType("text/html; charset=ISO-8859-1");
 		
-		if(!LoginUtils.brukerErInnlogget(request)) {
-			response.sendRedirect("LoginServlet?trengerLogin");
+		if(SessionKontroll.authenticate(request.getSession(false))) {
+			response.sendRedirect("Logginn?error=2");
 		} else {
 			PrintWriter ut = response.getWriter();
 			
@@ -48,7 +54,7 @@ public class HandlelisteServlet extends HttpServlet {
 					+ "		</form>\n"
 					+ " 	<form action=\"HandlelisteServlet\" method=\"post\">\n");
 					
-					for(Vare vare:handleliste.getVarer()) {//<----Fancy!!
+					for(Vare vare:Handleliste.getVarer()) {//<----Fancy!!
 						ut.println("\t\t<button type=\"submit\" name=\"skalSlette\" value=\"" + vare.getNavn() + "\"/>Slett</button>" + "  " + vare.getNavn() + "<br />\n"
 							);
 					}
@@ -72,8 +78,8 @@ public class HandlelisteServlet extends HttpServlet {
 		HttpSession sesjon = request.getSession(false);
 		
 		//Hvis sesjon er utgått eller kommet til handleliste uten å logge inn, send tilbake til LoginServlet 
-		if(!LoginUtils.brukerErInnlogget(request)) {
-			response.sendRedirect("LoginServlet?trengerLogin");
+		if(SessionKontroll.authenticate(sesjon)) {
+			response.sendRedirect("Logginn?error=2");
 		} else {
 			
 			//Alt ok - legg til eller fjern og send tilbake til samme side

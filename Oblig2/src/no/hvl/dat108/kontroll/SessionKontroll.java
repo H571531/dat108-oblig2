@@ -4,7 +4,7 @@ import javax.servlet.http.HttpSession;
 
 public class SessionKontroll {
 
-	public static boolean autheticate(HttpSession sesjon) {
+	public static boolean authenticate(HttpSession sesjon) {
 		return sesjon==null || sesjon.getAttribute("inlogget")==null;
 	}
 	

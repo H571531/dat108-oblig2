@@ -1,4 +1,4 @@
-package no.hvl.dat108.oblig2.kristoffer;
+package no.hvl.dat108.kontroll;
 
 public class HtmlUtils {
 	
