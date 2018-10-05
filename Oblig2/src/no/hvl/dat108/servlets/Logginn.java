@@ -16,7 +16,7 @@ import no.hvl.dat108.kontroll.HtmlUtils;
 /**
  * Servlet implementation class logginn
  */
-@WebServlet(name="Inlogging Servlet", urlPatterns="/Logginn")
+@WebServlet(name="Inlogging Servlet", urlPatterns="/logginn")
 public class Logginn extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private String passord;
@@ -50,7 +50,7 @@ public class Logginn extends HttpServlet {
 	        out.println("  			<fieldset>");
 	        out.println("   			<legend>Login</legend>");
 	        out.println("				<p class=\"error\">"+feilmelding+"</p>");
-	        out.println("   			<p>Passord: <input type=\"text\" name=\"passord\" /></p>");
+	        out.println("   			<p>Passord: <input type=\"password\" name=\"passord\" /></p>");
 	        out.println("    			<p><input type=\"submit\" value=\"Logg inn\" /></p>");
 	        out.println("  			</fieldset>");
 	        out.println("		</form>");

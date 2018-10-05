@@ -55,7 +55,7 @@ public class HtmlUtils {
 			while(iterator.hasNext()) {
 				Vare vare = iterator.next();
 				
-				ut.append("\t\t<button type=\"submit\" name=\"skalSlette\" value=\"" + vare.getNavn() + "\"/>Slett</button>\"" + vare.getNavn() + "\"<br />\n\"");	
+				ut.append("\t\t<button type=\"submit\" name=\"skalSlette\" value=\"" + vare.getNavn() + "\"/>Slett</button>" + vare.getNavn() + "<br />\n\"");	
 			}
 		}
 		ut.append("	</form>\n");

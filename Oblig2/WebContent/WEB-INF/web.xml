@@ -19,6 +19,6 @@
   </servlet>
   <context-param>
    	<param-name>timeout</param-name>
-  	<param-value>10</param-value>
+  	<param-value>15</param-value>
   </context-param>
 </web-app>

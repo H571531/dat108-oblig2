@@ -40,7 +40,7 @@ public class HandlelisteServlet extends HttpServlet {
 		response.setContentType("text/html; charset=ISO-8859-1");
 		
 		if(SessionKontroll.brukerErIkkeInnlogget(request)) {
-			response.sendRedirect("Logginn?error=2");
+			response.sendRedirect("logginn?error=2");
 		} else {
 			PrintWriter ut = response.getWriter();
 			
@@ -65,9 +65,9 @@ public class HandlelisteServlet extends HttpServlet {
 		
 		HttpSession sesjon = request.getSession(false);
 		
-		//Hvis sesjon er utgått eller kommet til handleliste uten å logge inn, send tilbake til LoginServlet 
+		//Hvis sesjon er utgått og bruker forsøker å legge til eller fjerne, send tilbake til LoginServlet 
 		if(SessionKontroll.brukerErIkkeInnlogget(request)) {
-			response.sendRedirect("logginn?error=2");
+			response.sendRedirect("logginn?error=4");
 		} else {
 			
 			//Alt ok - legg til eller fjern og send tilbake til samme side

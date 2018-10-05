@@ -21,6 +21,8 @@ public static String errorCheck(String errorCode){
 				case 3:
 					feilmelding="Ukjent Feil";
 					break;
+				case 4:
+					feilmelding = "Du må logge inn på nytt for å utføre denne handlingen.";
 				default:
 					feilmelding="Ukjent Feil";
 					break;
