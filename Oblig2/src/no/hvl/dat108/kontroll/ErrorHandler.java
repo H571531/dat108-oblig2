@@ -16,13 +16,14 @@ public static String errorCheck(String errorCode){
 					feilmelding="Feil passord";
 					break;
 				case 2:
-					feilmelding="Du m� v�re logget inn for � se denne siden";
+					feilmelding="Du må være logget inn for å se denne siden";
 					break;
 				case 3:
 					feilmelding="Ukjent Feil";
 					break;
 				case 4:
 					feilmelding = "Du må logge inn på nytt for å utføre denne handlingen.";
+					break;
 				default:
 					feilmelding="Ukjent Feil";
 					break;

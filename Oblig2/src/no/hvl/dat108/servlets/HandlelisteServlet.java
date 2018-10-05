@@ -75,10 +75,10 @@ public class HandlelisteServlet extends HttpServlet {
 			String sletteVare = request.getParameter("skalSlette");
 			
 			//Gitt i oppgave at man ikke skal legge til hvis bruker gir tom input
-			if(nyVare != null && !nyVare.equals("")) {
+			if(nyVare != null) {
 				//Ufarliggjøring av brukerinput ved hjelp av commons-text
 				nyVare = StringEscapeUtils.escapeHtml(nyVare);
-				handleliste.leggTil(new Vare(nyVare));
+				handleliste.leggTil(nyVare);
 			} 
 			
 			

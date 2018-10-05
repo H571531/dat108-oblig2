@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+import no.hvl.dat108.kontroll.VareKontroll;
+
 
 
 public class Handleliste {
@@ -16,10 +18,13 @@ public class Handleliste {
 		varer = Collections.synchronizedList(new ArrayList<Vare>());
 	}
 	
-	public void leggTil(Vare vare) {
-		synchronized(varer) {
-			varer.add(vare);
+	public void leggTil(String varenavn) {
+		if(VareKontroll.lovligVare(varenavn)){
+			synchronized(varer) {
+				varer.add(new Vare(varenavn));
+			}
 		}
+		
 		
 	}
 	
