@@ -1,5 +1,11 @@
 package no.hvl.dat108.kontroll;
 
+import java.util.Iterator;
+import java.util.List;
+
+import no.hvl.dat108.objekter.Handleliste;
+import no.hvl.dat108.objekter.Vare;
+
 public class HtmlUtils {
 	
 	/**
@@ -35,6 +41,37 @@ public class HtmlUtils {
 				"</html>";
 		
 		return slutt;
+	}
+	
+	public static String lagSletteSkjema(Handleliste liste) {
+		
+		StringBuilder ut = new StringBuilder();
+		
+		ut.append("<form action=\"HandlelisteServlet\" method=\"post\">\n");
+		
+		List<Vare> varer = liste.getVarer();
+		synchronized(varer) {
+			Iterator<Vare> iterator = varer.iterator();
+			while(iterator.hasNext()) {
+				Vare vare = iterator.next();
+				
+				ut.append("\t\t<button type=\"submit\" name=\"skalSlette\" value=\"" + vare.getNavn() + "\"/>Slett</button>\"" + vare.getNavn() + "\"<br />\n\"");	
+			}
+		}
+		ut.append("	</form>\n");
+		
+		return ut.toString();
+		
+	}
+	
+	public static String lagLeggTilSkjema(Handleliste liste) {
+		
+		String ut = ("		<form action=\"HandlelisteServlet\" method=\"post\">\n"
+				+ "			<p><input type=\"submit\" value=\"Legg til\" /><input type=\"text\" name=\"nyVare\" /> </p>\n"
+				+ "		</form>\n");
+		
+		return ut;
+				  
 	}
 
 }

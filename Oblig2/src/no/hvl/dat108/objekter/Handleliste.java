@@ -12,6 +12,7 @@ public class Handleliste {
 	static List<Vare> varer;
 	
 	public Handleliste() {
+		//Oppretter varer som en synchronized list
 		varer = Collections.synchronizedList(new ArrayList<Vare>());
 	}
 	
@@ -33,7 +34,7 @@ public class Handleliste {
 		
 	}
 
-	public static List<Vare> getVarer() {
+	public List<Vare> getVarer() {
 		return varer;
 	}
 	

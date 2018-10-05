@@ -17,4 +17,8 @@
       <param-value>Fint0gLangtPas50rd</param-value>
     </init-param>
   </servlet>
+  <context-param>
+   	<param-name>timeout</param-name>
+  	<param-value>10</param-value>
+  </context-param>
 </web-app>

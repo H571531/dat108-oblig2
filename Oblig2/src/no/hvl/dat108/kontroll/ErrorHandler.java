@@ -6,18 +6,17 @@ public static String errorCheck(String errorCode){
 	int errorcode=0;
 	if(errorCode != null) {
 		try {
+			//Kan oppstÃ¥ exception hvis bruker manuelt forsÃ¸ker Ã¥ gÃ¥ til f. eks. Logginn?error=ikkePlanlagtTekst
 			errorcode=Integer.parseInt(errorCode);
 		}catch(Exception e){
 			errorcode=3;	
 		}finally {
 			switch (errorcode) {
-				case 0:
-					break;
 				case 1:
 					feilmelding="Feil passord";
 					break;
 				case 2:
-					feilmelding="Du må være logget inn for å se denne siden";
+					feilmelding="Du mï¿½ vï¿½re logget inn for ï¿½ se denne siden";
 					break;
 				case 3:
 					feilmelding="Ukjent Feil";
