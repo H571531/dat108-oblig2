@@ -1,4 +1,4 @@
-package no.hvl.dat108.oblig2.kristoffer;
+package no.hvl.dat108.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,6 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang.StringEscapeUtils;
+
+import no.hvl.dat108.kontroll.HtmlUtils;
+import no.hvl.dat108.objekter.Handleliste;
+import no.hvl.dat108.objekter.Vare;
+import no.hvl.dat108.kontroll.SessionKontroll;
+
 
 /**
  * Servlet implementation class HandlelisteServlet
@@ -33,29 +39,17 @@ public class HandlelisteServlet extends HttpServlet {
 		
 		response.setContentType("text/html; charset=ISO-8859-1");
 		
-		if(!LoginUtils.brukerErInnlogget(request)) {
-			response.sendRedirect("LoginServlet?trengerLogin");
+		if(SessionKontroll.brukerErIkkeInnlogget(request)) {
+			response.sendRedirect("logginn?error=2");
 		} else {
 			PrintWriter ut = response.getWriter();
 			
-			
-			
 			ut.println(HtmlUtils.startHTML("Handleliste", "Min handleliste"));
 			
-			ut.println(
-					  "		<form action=\"HandlelisteServlet\" method=\"post\">\n"
-					+ "			<p><input type=\"submit\" value=\"Legg til\" /><input type=\"text\" name=\"nyVare\" /> </p>\n"
-					+ "		</form>\n"
-					+ " 	<form action=\"HandlelisteServlet\" method=\"post\">\n");
-					
-					for(Vare vare:handleliste.getVarer()) {//<----Fancy!!
-						ut.println("\t\t<button type=\"submit\" name=\"skalSlette\" value=\"" + vare.getNavn() + "\"/>Slett</button>" + "  " + vare.getNavn() + "<br />\n"
-							);
-					}
-					
-					ut.println("	</form>\n");
+			ut.println(HtmlUtils.lagLeggTilSkjema(handleliste));
 			
-
+			ut.println(HtmlUtils.lagSletteSkjema(handleliste));
+					
 			ut.println(HtmlUtils.sluttHTML()); 
 		}
 		
@@ -71,9 +65,9 @@ public class HandlelisteServlet extends HttpServlet {
 		
 		HttpSession sesjon = request.getSession(false);
 		
-		//Hvis sesjon er utgått eller kommet til handleliste uten å logge inn, send tilbake til LoginServlet 
-		if(!LoginUtils.brukerErInnlogget(request)) {
-			response.sendRedirect("LoginServlet?trengerLogin");
+		//Hvis sesjon er utgått og bruker forsøker å legge til eller fjerne, send tilbake til LoginServlet 
+		if(SessionKontroll.brukerErIkkeInnlogget(request)) {
+			response.sendRedirect("logginn?error=4");
 		} else {
 			
 			//Alt ok - legg til eller fjern og send tilbake til samme side
@@ -81,16 +75,14 @@ public class HandlelisteServlet extends HttpServlet {
 			String sletteVare = request.getParameter("skalSlette");
 			
 			//Gitt i oppgave at man ikke skal legge til hvis bruker gir tom input
-			if(nyVare != null && !nyVare.equals("")) {
+			if(nyVare != null) {
 				//Ufarliggjøring av brukerinput ved hjelp av commons-text
 				nyVare = StringEscapeUtils.escapeHtml(nyVare);
-				handleliste.leggTil(new Vare(nyVare));
+				handleliste.leggTil(nyVare);
 			} 
 			
-			//Penere måte å slette vare på?
 			
 			//Hente navn på vare som skal slettes
-			
 			if(sletteVare != null) {
 				//Hvis noe skal slettes, send til handleliste for sletting
 				handleliste.fjernVare(sletteVare);

@@ -5,10 +5,6 @@ import no.hvl.dat108.objekter.Vare;
 public class VareKontroll {
 
 	public static boolean lovligVare(String vare) {
-		boolean erlovlig=true;
-		
-		//todo: implementer 
-		
-		return erlovlig;
+		 return !vare.equals("") && !vare.startsWith(" ");
 	}
 }

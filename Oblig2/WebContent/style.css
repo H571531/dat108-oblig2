@@ -8,16 +8,7 @@ p.error{
 	color:red;
 }
 
-fieldset{
-	border: 1px solid black;
-	border-radius: 15px 50px 30px;
-	width: 20%;
-	font-weight: bold;
-}
 
-div.loginBoks{
-	float: right;
-}
 
 div.leggtil{
 	float: left;
