@@ -48,7 +48,7 @@ public class HandlelisteServlet extends HttpServlet {
 					+ "		</form>\n"
 					+ " 	<form action=\"HandlelisteServlet\" method=\"post\">\n");
 					
-					for(Vare vare:handleliste.getVarer()) {
+					for(Vare vare:handleliste.getVarer()) {//<----Fancy!!
 						ut.println("\t\t<button type=\"submit\" name=\"skalSlette\" value=\"" + vare.getNavn() + "\"/>Slett</button>" + "  " + vare.getNavn() + "<br />\n"
 							);
 					}

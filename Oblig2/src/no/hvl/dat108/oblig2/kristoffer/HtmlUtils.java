@@ -15,6 +15,7 @@ public class HtmlUtils {
 				"	<head>\n" + 
 				"		<meta charset=\"ISO-8859-1\">\n" + 
 				"		<title>" + title + "</title>\n" + 
+				"		<link rel=\"stylesheet\" href=\"style.css\">\n"+
 				"	</head>\n" + 
 				"	<body>\n" +
 				"		<h1>" + overskrift + "</h1>"; 
