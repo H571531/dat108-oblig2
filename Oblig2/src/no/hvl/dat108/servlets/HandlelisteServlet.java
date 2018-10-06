@@ -10,12 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.text.StringEscapeUtils;
 
 import no.hvl.dat108.kontroll.HtmlUtils;
-import no.hvl.dat108.objekter.Handleliste;
-import no.hvl.dat108.objekter.Vare;
 import no.hvl.dat108.kontroll.SessionKontroll;
+import no.hvl.dat108.objekter.Handleliste;
 
 
 /**
@@ -77,7 +76,7 @@ public class HandlelisteServlet extends HttpServlet {
 			//Gitt i oppgave at man ikke skal legge til hvis bruker gir tom input
 			if(nyVare != null) {
 				//Ufarliggjøring av brukerinput ved hjelp av commons-text
-				nyVare = StringEscapeUtils.escapeHtml(nyVare);
+				nyVare = StringEscapeUtils.escapeHtml4(nyVare);
 				handleliste.leggTil(nyVare);
 			} 
 			

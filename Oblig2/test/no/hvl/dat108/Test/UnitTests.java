@@ -6,7 +6,8 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import no.hvl.dat108.kontroll.ErrorHandler;
-import no.hvl.dat108.kontroll.SessionKontroll;
+import no.hvl.dat108.kontroll.VareKontroll;
+import no.hvl.dat108.objekter.Vare;
 
 public class UnitTests {
 	@Test
@@ -28,11 +29,11 @@ public class UnitTests {
 	public void TestVareKontroll() {
 		Vare vare1=new Vare("Lovlig");
 		Vare vare2=new Vare("");
-		Vare vare2=new Vare(" ");
+		Vare vare3=new Vare(" ");
 		
 		assertTrue(VareKontroll.lovligVare(vare1.toString()));
 		assertFalse(VareKontroll.lovligVare(vare2.toString()));
-		assertFalse(VareKontroll.lovligVare(vare2.toString()));
+		assertFalse(VareKontroll.lovligVare(vare3.toString()));
 	}
 	
 }
