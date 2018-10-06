@@ -5,7 +5,13 @@ import java.util.List;
 
 import no.hvl.dat108.objekter.Handleliste;
 import no.hvl.dat108.objekter.Vare;
-
+/**
+ * Hjelpeklasse for å skrive ut HTML til responder i servlettene. 
+ * 
+ * 
+ * @author Gruppe22
+ *
+ */
 public class HtmlUtils {
 	
 	/**
@@ -42,6 +48,12 @@ public class HtmlUtils {
 		
 		return slutt;
 	}
+/**
+ * Visning av handleliste 	
+ * 
+ * @param liste, liste av varer som skal vises på siden
+ * @return ferdig liste. med slette knapper
+ */
 	
 	public static String lagSletteSkjema(Handleliste liste) {
 		
@@ -63,8 +75,12 @@ public class HtmlUtils {
 		return ut.toString();
 		
 	}
-	
-	public static String lagLeggTilSkjema(Handleliste liste) {
+	/**
+	 * Metode for å vise legg til vare skjema. 
+	 * @param liste
+	 * @return HTML for legg til vare skjema
+	 */
+	public static String lagLeggTilSkjema() {
 		
 		String ut = ("		<form action=\"HandlelisteServlet\" method=\"post\">\n"
 				+ "			<p><input type=\"submit\" value=\"Legg til\" /><input type=\"text\" name=\"nyVare\" /> </p>\n"

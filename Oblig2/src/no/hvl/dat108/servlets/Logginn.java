@@ -14,7 +14,7 @@ import no.hvl.dat108.kontroll.ErrorHandler;
 import no.hvl.dat108.kontroll.HtmlUtils;
 
 /**
- * Servlet implementation class logginn
+ * Servlet implementation class Logginn
  */
 @WebServlet(name="Inlogging Servlet", urlPatterns="/logginn")
 public class Logginn extends HttpServlet {
@@ -24,10 +24,14 @@ public class Logginn extends HttpServlet {
  
 	@Override
 	public void init() throws ServletException {
+		//Henter passordet som ligger i web.xml 
 		passord = getServletConfig().getInitParameter("passord");
+		//Henter timeout parameteren i web.xml
 		timeout = Integer.parseInt(getServletContext().getInitParameter("timeout"));
 	}
-	
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
     	String feilmelding=ErrorHandler.errorCheck(request.getParameter("error"));
@@ -35,14 +39,13 @@ public class Logginn extends HttpServlet {
     	response.setContentType("text/html; charset=ISO-8859-1");
     	
 	       PrintWriter out = response.getWriter();
-
 	       
 	       out.println(HtmlUtils.startHTML("Login", ""));
 	       
 	       out.println("<div class=\"main\">");
 	       out.println("<div class=\"orange\">");
 	       
-	       out.println("	<h1>Velkommen til gruppe 15s fantastiske handleliste</h1>\r\n"); 
+	       out.println("	<h1>Velkommen til gruppe 22s fantastiske handleliste</h1>\r\n"); 
 	       
 	       out.println("	<div class=\"loginBoks\">");
 	       
@@ -65,14 +68,17 @@ public class Logginn extends HttpServlet {
 	       
 	}
 
-
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       
     	String gittPassord = request.getParameter("passord");
-    	if(!gittPassord.equals(passord)) {
-    		response.sendRedirect("logginn" + "?error=1");
+    	if(!gittPassord.equals(passord)) {//Sjekker om det er blitt opgitt rett passord
+    		response.sendRedirect("logginn" + "?error=1"); //Om ikke: refresh med en feilmelding. 
     	}else {
-    	HttpSession sesjon = request.getSession(false);
+    	HttpSession sesjon = request.getSession(false); //Om pasordet er godkjent, skal tilstedeværende sesjoner fjernes, 
+    													//og det skal lages en ny med timeout og en "inlogget" parameter
     		if(sesjon!=null) {
     			sesjon.invalidate();
     		}
@@ -80,7 +86,7 @@ public class Logginn extends HttpServlet {
     	sesjon.setMaxInactiveInterval(timeout);
     	sesjon.setAttribute("inlogget", "godkjent");
     	
-        response.sendRedirect("HandlelisteServlet");
+        response.sendRedirect("HandlelisteServlet"); //Redirecter bruker til handlelisten. 
     	}
 
 	}

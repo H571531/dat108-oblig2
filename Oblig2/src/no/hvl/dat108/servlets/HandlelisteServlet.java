@@ -45,7 +45,7 @@ public class HandlelisteServlet extends HttpServlet {
 			
 			ut.println(HtmlUtils.startHTML("Handleliste", "Min handleliste"));
 			
-			ut.println(HtmlUtils.lagLeggTilSkjema(handleliste));
+			ut.println(HtmlUtils.lagLeggTilSkjema());
 			
 			ut.println(HtmlUtils.lagSletteSkjema(handleliste));
 					
