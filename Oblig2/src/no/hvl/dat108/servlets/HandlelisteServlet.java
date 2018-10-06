@@ -75,7 +75,12 @@ public class HandlelisteServlet extends HttpServlet {
 			
 			//Gitt i oppgave at man ikke skal legge til hvis bruker gir tom input
 			if(nyVare != null) {
-				//Ufarliggjøring av brukerinput ved hjelp av commons-text
+				
+				/*
+				 * Ufarliggjøring av brukerinput ved hjelp av commons-text
+				 * StringEscapeUtils.escapeHtml i commons-lang er deprecated - anbefales nå å bruke commons-text,
+				 * men denne har ingen eksplisitt escape for html5 - bruker derfor escapeHtlm4.
+				 */
 				nyVare = StringEscapeUtils.escapeHtml4(nyVare);
 				handleliste.leggTil(nyVare);
 			} 

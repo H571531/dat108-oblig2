@@ -11,9 +11,9 @@ public class Vare {
 	private String varenavn;
 	
 	/**
-	 * Konstruktør
+	 * KonstruktÃ¸r
 	 * 
-	 * @param navn på varen
+	 * @param navn pï¿½ varen
 	 */
 	public Vare(String navn) {
 		varenavn=navn;
@@ -22,14 +22,14 @@ public class Vare {
 	/**
 	 * Gir navn
 	 * 
-	 * @return navnet på varen
+	 * @return navnet pï¿½ varen
 	 */
 	public String getNavn() {
 		return varenavn;
 	}
 
 	/**
-	 * Metode for å endre varenavn
+	 * Metode for ï¿½ endre varenavn
 	 * @param varenavn
 	 */
 	public void setVarenavn(String varenavn) {
@@ -37,7 +37,7 @@ public class Vare {
 	}
 	/**
 	 * Sjekker om en vare er lik noe. 
-	 * @param et objekt for å teste om det er likt varen
+	 * @param et objekt for ï¿½ teste om det er likt varen
 	 */
 	@Override
 	public boolean equals(Object obj) {

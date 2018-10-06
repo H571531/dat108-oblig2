@@ -6,7 +6,7 @@ import java.util.List;
 import no.hvl.dat108.objekter.Handleliste;
 import no.hvl.dat108.objekter.Vare;
 /**
- * Hjelpeklasse for Â skrive ut HTML til responder i servlettene. 
+ * Hjelpeklasse for ÔøΩ skrive ut HTML til responder i servlettene. 
  * 
  * 
  * @author Gruppe22
@@ -51,8 +51,8 @@ public class HtmlUtils {
 /**
  * Visning av handleliste 	
  * 
- * @param liste, liste av varer som skal vises pÂ siden
- * @return ferdig liste. med slette knapper
+ * @param liste, liste av varer som skal vises p√• siden
+ * @return String med ferdig liste med slette-knapper
  */
 	
 	public static String lagSletteSkjema(Handleliste liste) {
@@ -62,6 +62,13 @@ public class HtmlUtils {
 		ut.append("<form action=\"HandlelisteServlet\" method=\"post\">\n");
 		
 		List<Vare> varer = liste.getVarer();
+		
+		/*
+		 * Ved iterering gjennom en synchronizedList er det if√∏lge javadoc for Collections imperativt at det brukes manuell synkronisering
+		 * p√• listen ved bruk av Iterator, Spliterator eller Stream:
+		 * https://docs.oracle.com/javase/9/docs/api/java/util/Collections.html#synchronizedList-java.util.List-
+		 */
+		
 		synchronized(varer) {
 			Iterator<Vare> iterator = varer.iterator();
 			while(iterator.hasNext()) {
@@ -76,9 +83,9 @@ public class HtmlUtils {
 		
 	}
 	/**
-	 * Metode for Â vise legg til vare skjema. 
+	 * Metode for √• vise skjema for √• legge til vare. 
 	 * @param liste
-	 * @return HTML for legg til vare skjema
+	 * @return String med HTML for legg-til-vare-skjema
 	 */
 	public static String lagLeggTilSkjema() {
 		
