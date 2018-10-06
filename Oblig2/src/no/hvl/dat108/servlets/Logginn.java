@@ -29,6 +29,8 @@ public class Logginn extends HttpServlet {
 		//Henter timeout parameteren i web.xml
 		timeout = Integer.parseInt(getServletContext().getInitParameter("timeout"));
 	}
+	
+	
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -67,6 +69,7 @@ public class Logginn extends HttpServlet {
 	        out.println(HtmlUtils.sluttHTML());
 	       
 	}
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -77,14 +80,14 @@ public class Logginn extends HttpServlet {
     	if(!gittPassord.equals(passord)) {//Sjekker om det er blitt opgitt rett passord
     		response.sendRedirect("logginn" + "?error=1"); //Om ikke: refresh med en feilmelding. 
     	}else {
-    	HttpSession sesjon = request.getSession(false); //Om pasordet er godkjent, skal tilstedeværende sesjoner fjernes, 
-    													//og det skal lages en ny med timeout og en "inlogget" parameter
+    	HttpSession sesjon = request.getSession(false); //Om passordet er godkjent, skal tilstedevï¿½rende sesjoner fjernes, 
+    													//og det skal lages en ny med timeout og en "innlogget" parameter
     		if(sesjon!=null) {
     			sesjon.invalidate();
     		}
     	sesjon = request.getSession(true);
     	sesjon.setMaxInactiveInterval(timeout);
-    	sesjon.setAttribute("inlogget", "godkjent");
+    	sesjon.setAttribute("innlogget", "godkjent");
     	
         response.sendRedirect("HandlelisteServlet"); //Redirecter bruker til handlelisten. 
     	}

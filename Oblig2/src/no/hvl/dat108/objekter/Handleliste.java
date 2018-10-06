@@ -3,14 +3,13 @@ package no.hvl.dat108.objekter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.NoSuchElementException;
 
 import no.hvl.dat108.kontroll.VareKontroll;
 
 
 /**
  * Klasse for Handleliste objekter. 
- * Brukes til å lagre varene. 
+ * Brukes til Ã¥ lagre varene. 
  * 
  * @author Gruppe22
  *
@@ -20,7 +19,7 @@ public class Handleliste {
 	static List<Vare> varer;
 	
 	/**
-	 * Konstruktør
+	 * KonstruktÃ¸r
 	 */
 	public Handleliste() {
 		//Oppretter varer som en synchronized list
@@ -28,7 +27,7 @@ public class Handleliste {
 	}
 	
 	/**
-	 * Metode for å legge til vare i listen
+	 * Metode for Ã¥ legge til vare i listen
 	 * @param varenavn
 	 */
 	public void leggTil(String varenavn) {
@@ -41,7 +40,7 @@ public class Handleliste {
 		
 	}
 	/**
-	 * Metode for å fjerne vare fra listen
+	 * Metode for Ã¥ fjerne vare fra listen
 	 * 
 	 * @param vareNavn
 	 */
@@ -57,7 +56,7 @@ public class Handleliste {
 	}
 
 	/**
-	 * For å hente hele vare listen. 
+	 * For Ã¥ hente hele vare listen. 
 	 * @return hele listen med varer
 	 */
 	public List<Vare> getVarer() {

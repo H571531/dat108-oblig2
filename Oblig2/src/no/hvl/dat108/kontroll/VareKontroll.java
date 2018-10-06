@@ -1,9 +1,8 @@
 package no.hvl.dat108.kontroll;
 
-import no.hvl.dat108.objekter.Vare;
 
 /**
- * Klasse for Â sjekke navn pÂ gitt vare. 
+ * Klasse for √• sjekke navn p√• gitt vare. 
  * 
  * @author Gruppe22
  *
@@ -11,12 +10,13 @@ import no.hvl.dat108.objekter.Vare;
 public class VareKontroll {
 
 	/**
-	 * Metode for sjekk av lagt til vare navn er lovlig. 
+	 * Metode for sjekk av navn p√• lagt til vare er lovlig. 
 	 * 
 	 * @param vare
-	 * @return boolen om lovlig eller ikke
+	 * @return boolen om gitt varenavn er lovlig eller ikke
 	 */
 	public static boolean lovligVare(String vare) {
+		//Gitt i oppgave at man ikke skal lagre noe hvis det gis en tom streng
 		 return !vare.equals("") && !vare.startsWith(" ");
 	}
 }

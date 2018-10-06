@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 /**
- * Hjelpeklasse for å sjekke "sessjoner"
+ * Hjelpeklasse for ï¿½ sjekke sesjoner
  * 
  * @author Gruppe22
  *
@@ -13,7 +13,7 @@ public class SessionKontroll {
 
 	
 	/**
-	 * Metode som sjekker om sesjonen finnes og har attributten "inlogget"
+	 * Metode som sjekker om sesjonen finnes og har attributten "innlogget"
 	 * 
 	 * 
 	 * @param request
@@ -22,7 +22,7 @@ public class SessionKontroll {
 	public static boolean brukerErIkkeInnlogget(HttpServletRequest request) {
 		HttpSession sesjon = request.getSession(false);
 		
-		return sesjon==null || sesjon.getAttribute("inlogget")==null;
+		return sesjon==null || sesjon.getAttribute("innlogget")==null;
 	}
 	
 	
