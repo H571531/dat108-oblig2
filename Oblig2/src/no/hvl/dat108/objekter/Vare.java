@@ -1,13 +1,20 @@
 package no.hvl.dat108.objekter;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * Klasse for vare objekter. 
  * 
  * @author Gruppe22
  *
  */
+
+@Entity
+@Table(schema = "handleliste", name = "handleliste")
 public class Vare {
-	
+	@Id
 	private String varenavn;
 	
 	/**

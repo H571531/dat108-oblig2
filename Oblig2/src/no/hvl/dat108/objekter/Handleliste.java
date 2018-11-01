@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import no.hvl.dat108.EAO.vareEAO;
 import no.hvl.dat108.kontroll.VareKontroll;
 
 
@@ -17,7 +18,7 @@ import no.hvl.dat108.kontroll.VareKontroll;
 public class Handleliste {
 	
 	static List<Vare> varer;
-	
+	vareEAO eao=new vareEAO();
 	/**
 	 * Konstruktør
 	 */
@@ -34,6 +35,7 @@ public class Handleliste {
 		if(VareKontroll.lovligVare(varenavn)){
 			synchronized(varer) {
 				varer.add(new Vare(varenavn));
+				//eao.leggTil(new Vare(varenavn));
 			}
 		}
 		
@@ -49,6 +51,7 @@ public class Handleliste {
 				//Har sjekket for om varen som forsøkes fjernet er null 
 				//Hvis en bruker forsøker å fjerne en vare som allerede er fjernet av en annen bruker, forblir listen uendret ifølge API for ArrayList
 				varer.remove(new Vare(vareNavn));
+				//eao.slett(vareNavn);
 			
 			
 		}

@@ -37,7 +37,8 @@ public class Logginn extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
     	String feilmelding=ErrorHandler.errorCheck(request.getParameter("error"));
-    	
+    	request.setAttribute("feilmelding", feilmelding);
+    	/*
     	response.setContentType("text/html; charset=ISO-8859-1");
     	
 	       PrintWriter out = response.getWriter();
@@ -67,6 +68,10 @@ public class Logginn extends HttpServlet {
 	        
 	        
 	        out.println(HtmlUtils.sluttHTML());
+	       
+	         */
+    	request.getRequestDispatcher("WEB-INF/login.jsp")
+		.forward(request, response);
 	       
 	}
 	

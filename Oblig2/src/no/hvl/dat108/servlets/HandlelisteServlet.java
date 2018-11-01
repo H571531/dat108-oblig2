@@ -41,6 +41,7 @@ public class HandlelisteServlet extends HttpServlet {
 		if(SessionKontroll.brukerErIkkeInnlogget(request)) {
 			response.sendRedirect("logginn?error=2");
 		} else {
+			/*
 			PrintWriter ut = response.getWriter();
 			
 			ut.println(HtmlUtils.startHTML("Handleliste", "Min handleliste"));
@@ -50,6 +51,15 @@ public class HandlelisteServlet extends HttpServlet {
 			ut.println(HtmlUtils.lagSletteSkjema(handleliste));
 					
 			ut.println(HtmlUtils.sluttHTML()); 
+			*/
+			
+			request.setAttribute("liste", handleliste);
+			
+			request.getRequestDispatcher("WEB-INF/Handleliste.jsp")
+			.forward(request, response);
+			
+			
+			
 		}
 		
 		
